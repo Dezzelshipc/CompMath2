@@ -1,0 +1,10 @@
+x_tg <- seq(-1, 1, len=200)
+plot(x_tg, tan(x_tg), type="l")
+
+pdf("sem1-statistics/prac/cos_no_save.pdf")
+x_cos <- seq(-2 * pi, 2 * pi, len=200)
+plot(x_cos, cos(x_cos), type="o", xlab="x", ylab="y", col="green")
+abline(h=0)
+abline(v=0)
+legend(1,1, "y = cos(x)")
+dev.off()
