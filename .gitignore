@@ -1,3 +1,5 @@
 *no_save.*
 /.idea
 **/logs
+**/dataset
+**/history
