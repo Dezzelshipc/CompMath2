@@ -1,0 +1,43 @@
+x = inputs = keras.Input((64, 64, 3))
+
+x = keras.layers.Rescaling(1./255)(x)
+
+x = keras.layers.Conv2D(32, 3, padding="same")(x)
+x = keras.layers.BatchNormalization(momentum=0.9)(x)
+x = keras.layers.ReLU()(x)
+x = keras.layers.MaxPooling2D(2)(x)
+x = keras.layers.Dropout(0.2)(x)
+
+x = keras.layers.Conv2D(64, 3, padding="same")(x)
+x = keras.layers.BatchNormalization(momentum=0.9)(x)
+x = keras.layers.ReLU()(x)
+x = keras.layers.Conv2D(64, 3, padding="same")(x)
+x = keras.layers.BatchNormalization(momentum=0.9)(x)
+x = keras.layers.ReLU()(x)
+x = keras.layers.MaxPooling2D(2)(x)
+x = keras.layers.Dropout(0.15)(x)
+
+x = keras.layers.Conv2D(128, 3, padding="same")(x)
+x = keras.layers.BatchNormalization(momentum=0.9)(x)
+x = keras.layers.ReLU()(x)
+x = keras.layers.Conv2D(128, 3, padding="same")(x)
+x = keras.layers.BatchNormalization(momentum=0.9)(x)
+x = keras.layers.ReLU()(x)
+x = keras.layers.MaxPooling2D(2)(x)
+x = keras.layers.Dropout(0.1)(x)
+
+x = keras.layers.Conv2D(256, 3, padding="same")(x)
+x = keras.layers.BatchNormalization(momentum=0.9)(x)
+x = keras.layers.ReLU()(x)
+x = keras.layers.Conv2D(256, 3, padding="same")(x)
+x = keras.layers.BatchNormalization(momentum=0.9)(x)
+x = keras.layers.ReLU()(x)
+x = keras.layers.GlobalAveragePooling2D()(x)
+
+x = keras.layers.Dense(256)(x)
+x = keras.layers.BatchNormalization(momentum=0.9)(x)
+x = keras.layers.ReLU()(x)
+x = keras.layers.Dropout(0.3)(x)
+x = keras.layers.Dense(N_CLASSES, activation="softmax", dtype="float32")(x)
+
+model = keras.models.Model(inputs, x)
