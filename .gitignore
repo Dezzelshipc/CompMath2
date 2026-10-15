@@ -1,6 +1,8 @@
 *no_save.*
 /.idea
+**/.ipynb_checkpoints
 **/logs
 **/dataset
 **/history
 **/output
+**/saved
