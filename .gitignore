@@ -2,7 +2,7 @@
 /.idea
 **/.ipynb_checkpoints
 **/logs
-**/dataset
+**/dataset*
 **/history
 **/output
 **/saved
